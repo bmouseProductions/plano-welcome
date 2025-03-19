@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .scrolling-wrapper {
+          display: flex;
+          overflow: hidden;
+          position: relative;
+          width: 100%;
+        }
+  
+        .scrolling-text {
+          display: flex;
+          align-items: center; /* Centraliza textos e imagens verticalmente */
+          animation: scroll-left 15s linear infinite;
+        }
+  
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+  
+        .scrolling-text span,
+        .scrolling-text img {
+          white-space: nowrap;
+          margin-right: 50px; /* Espaço entre os itens */
+        }
+  
+        .scrolling-text img {
+          height: 50px; /* Ajuste o tamanho conforme necessário\ */
+          object-fit: contain;
+        }
+      </style>
+      <link rel="stylesheet" href="style.css">
+</head>
+<body >
+
+    <section class="uppercase">
+        <div class="bg-[linear-gradient(88deg,_#FFEF9C_-7.53%,_#F4DD7E_-4.2%,_#ECD275_-0.49%,_#C49A45_4.17%,_#C9954E_6.05%,_#CBA44D_7.72%,_#F4DD7E_16.53%,_#FAE78E_49.48%,_#FFEF9C_61.93%,_#F1DA7B_75.45%,_#CFAA53_78.58%,_#B68735_80.13%,_#F4DD7E_90.81%,_#AC7929_93.4%,_#CDA750_94.89%,_#E5C86C_97.98%,_#F9E489_101.31%,_#FFEE97_103.53%)]  py-4">
+          <div class="scrolling-wrapper">
+            <div class="scrolling-text">
+              <!-- Textos -->
+              <span class="text-xl mansfield"
+                >GARANTA O MÉTODO HOJE E GANHE conteúdo ADICIONAL</span
+              >
+              <img src="assets/logo_black.svg" width="154" height="29" alt="Vector" />
+  
+              <span class="text-xl mansfield">GARANTA O MÉTODO HOJE E GANHE conteúdo ADICIONAL</span>
+  
+              <!-- Imagem/Vetor -->
+              <img src="assets/logo_black.svg" width="154" height="29" alt="Vector" />
+  
+              <!-- Mais textos -->
+              <span class="text-xl mansfield"
+                >GARANTA O MÉTODO HOJE E GANHE conteúdo ADICIONAL</span
+              >
+              <img src="assets/logo_black.svg" width="154" height="29" alt="Vector" />
+  
+              <span class="text-xl mansfield">GARANTA O MÉTODO HOJE E GANHE conteúdo ADICIONAL</span>
+              <img src="assets/logo_black.svg" width="154" height="29" alt="Vector" />
+  
+              <!-- Repetição para continuidade -->
+              <span class="text-xl mansfield"
+                >GARANTA O MÉTODO HOJE E GANHE conteúdo ADICIONAL</span
+              >
+              <img src="assets/logo_black.svg" width="154" height="29" alt="Vector" />
+  
+              <span class="text-xl mansfield">GARANTA O MÉTODO HOJE E GANHE conteúdo ADICIONAL</span>
+              <img src="assets/logo_black.svg" width="154" height="29" alt="Vector" />
+              <span class="text-xl mansfield"
+                >GARANTA O MÉTODO HOJE E GANHE conteúdo ADICIONAL</span
+              >
+              <img src="assets/logo_black.svg" width="154" height="29" alt="Vector" />
+  
+              <span class="text-xl mansfield">GARANTA O MÉTODO HOJE E GANHE conteúdo ADICIONAL</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <header class="bg-gradient-to-r from-black to-blue-900">
+        <div class="pt-16 mx-auto container text-center px-4 md:px-8 lg:px-16 py-16">
+            <img src="assets/atlas_logo.webp" alt="logo atlas" class="mx-auto w-32 md:w-48 lg:w-64">
+            <div class="mt-6 text-white">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl mansfieldSemiBold">
+                    <span class="mansfieldItalic text-[#F8E489]">CURSO MÉTODO ATLAS</span> – APRENDA A LOTAR SUA AGENDA COM 
+                    <span class="bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)] mt-2 inline-block leading-10 p-2 md:p-3 text-black mansfieldBold">
+                        PACIENTES PARTICULARES!
+                    </span>
+                </h1>
+            </div>
+            
+            <div class="mt-6 flex justify-center">
+                <div class="w-full max-w-full md:max-w-3xl lg:max-w-5xl">
+                    <div class="relative w-full h-0" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/SEU_VIDEO_ID" 
+                            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+                            clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-gradient-to-r from-black to-blue-900 pb-32">
+        <div class="relative px-4 md:px-8 lg:px-16">
+            <div class="flex flex-col md:flex-row container mx-auto items-center">
+                <div class="w-full md:w-1/2 text-white text-center md:text-left">
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl mb-10 mansfield">
+                        Você é <span class="bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)] inline-block text-black mansfieldBold">médico</span> e já tentou investir no digital, mas ainda não <span class="bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)] inline-block text-black">vê resultados?</span>
+                    </h1>
+                    <ul class="mb-12 text-lg mansfieldBold space-y-4">
+                        <li>❌ Muitos seguidores, mas poucos pacientes?</li>
+                        <li>❌ Anúncios que gastam dinheiro, mas não convertem?</li>
+                        <li>❌ Depender de indicações para fechar consultas?</li>
+                    </ul>
+                    <p class="text-lg mansfield">Se você quer uma estratégia validada para atrair, engajar e converter pacientes de forma previsível e sem marketing apelativo, o Curso Método ATLAS foi feito para você!</p>
+                </div>
+                <div class="w-full md:w-1/2 lg:flex justify-center mt-10 md:mt-0 hidden">
+                    <img src="assets/Macbook_Silver.webp" alt="Macbook_Silver" class="w-3/4 md:w-full max-w-md md:max-w-lg lg:max-w-xl">
+                </div>
+            </div>
+            <div class="mx-auto text-center mt-20 md:mt-32">
+                <button class="bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)] mx-auto mansfieldBold px-6 py-3 rounded-full mt-10 text-sm font-bold hover:bg-yellow-600 transition">
+                    <a href="https://wa.me/5534999306776?text=Ol%C3%A1%2C%20gostaria%20de%20patrocinar%20o%20Doctalk%20com%20a%20cota%20APOIO">
+                        GARANTIR MÉTODO
+                    </a>
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="relative bg-white py-20">
+        <img src="assets/rocket.svg" alt="foguete" class="absolute -top-20 lg:left-[46%] left-[31%]">
+        <div class="mx-auto text-center">
+            <h1 class="text-5xl  mb-12 uppercase mansfield">Como funciona o <span class="bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)] inline-block text-black mansfieldBold">curso?</span></h1>
+        </div>
+    
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 px-4 mt-32">
+            <div class="flex flex-col items-center text-center">
+                <img src="assets/retangulo.webp" alt="Aulas novas" class=" mb-4">
+                <p class="text-lg mansfield">🎥 AULAS NOVAS TODA SEMANA</p>
+                <p class="text-gray-600 mansfield">Atualizações constantes com as melhores estratégias do mercado.</p>
+            </div>
+    
+            <div class="flex flex-col items-center text-center">
+                <img src="assets/retangulo.webp" alt="Calendário" class=" mb-4">
+                <p class="text-lg mansfield">📅 VOCÊ JÁ SABE TODAS AS AULAS E DATAS</p>
+                <p class="text-gray-600 mansfield">Planejamento completo para acompanhar cada etapa do aprendizado.</p>
+            </div>
+    
+            <div class="flex flex-col items-center text-center">
+                <img src="assets/retangulo.webp" alt="Live" class=" mb-4">
+                <p class="text-lg mansfield">🎤 1 LIVE POR SEMANA</p>
+                <p class="text-gray-600 mansfield">Aprenda ao vivo com especialistas, tire suas dúvidas e aplique o método na prática.</p>
+            </div>
+    
+            <div class="flex flex-col items-center text-center">
+                <img src="assets/retangulo.webp" alt="Acesso imediato" class=" mb-4">
+                <p class="text-lg mansfield">🔗 ACESSO IMEDIATO</p>
+                <p class="text-gray-600 mansfield">Comece agora com as 3 primeiras aulas disponíveis!</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="relative bg-gradient-to-r from-black to-blue-900 py-20 px-6">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-around gap-10">
+            <div class="relative rounded-lg flex items-center justify-center">
+                <img src="assets/retangulo-grande.webp" alt="">
+            </div>
+            <div class="text-white max-w-lg">
+                <h2 class="text-6xl mansfield">
+                    O QUE VOCÊ VAI <span class="bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)] inline-block text-black mansfieldBold">APRENDER?</span> 📖
+                </h2>
+                <ul class="mt-6 space-y-4 mansfield">
+                    <li class="flex items-start">✅ <span class="ml-2">Como atrair pacientes particulares sem depender de indicação.</span></li>
+                    <li class="flex items-start">✅ <span class="ml-2">O que realmente funciona no Instagram para médicos.</span></li>
+                    <li class="flex items-start">✅ <span class="ml-2">Como transformar seguidores em pacientes reais.</span></li>
+                    <li class="flex items-start">✅ <span class="ml-2">O passo a passo para criar anúncios que convertem.</span></li>
+                    <li class="flex items-start">✅ <span class="ml-2">Posicionamento digital para se tornar referência na sua especialidade.</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="relative bg-gradient-to-r from-black to-blue-900 py-16 px-4 md:px-8 lg:px-16 flex justify-center">
+        <div class="container mx-auto max-w-3xl border border-yellow-500 rounded-lg p-8 md:p-16 lg:p-20 text-center text-white">
+            <div class="text-4xl mb-4">🔥</div>
+            
+            <h2 class="text-3xl md:text-5xl lg:text-6xl mansfield">
+                PARA QUEM É O <span class="bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)] inline-block text-black mansfieldBold">CURSO?</span>
+            </h2>
+    
+            <ul class="mt-6 space-y-4 text-lg md:text-xl lg:text-2xl mansfieldBold">
+                <li class="flex items-start md:items-center justify-start md:justify-center gap-2 ">
+                    📌 <span>Médicos que querem atrair pacientes particulares de forma previsível.</span>
+                </li>
+                <li class="flex items-start md:items-center justify-start md:justify-center gap-2 ">
+                    📌 <span>Profissionais que já investiram em marketing, mas não viram resultados reais.</span>
+                </li>
+                <li class="flex items-start md:items-center justify-start md:justify-center gap-2 ">
+                    📌 <span>Especialistas que querem parar de depender de indicações e construir uma marca forte.</span>
+                </li>
+            </ul>
+    
+            <button class="mt-8 bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)] text-black font-bold py-3 px-6 rounded-lg shadow-md hover:bg-yellow-600 transition">
+                GARANTIR MÉTODO
+            </button>
+        </div>
+    </section>
+    
+
+    <section class="bg-gradient-to-r from-black to-blue-900 pb-48">
+        <div class="py-32 container mx-auto px-4 relative mb-40 ">
+ <div class="mx-auto text-center relative">
+            <img src="assets/presente.svg" alt="presente" width="105" height="105" class="absolute bottom-28 right-[45%]">
+            <h1 class="text-2xl sm:text-6xl md:text-7xl p-5 font-bold mansfieldBold text-center uppercase mb-10 evenings-normal tracking-wide bg-[url('/assets/bg_dourado.webp')] bg-no-repeat bg-center">
+                BÔNUS
+            </h1>
+            <p class="text-white text-lg sm:text-xl mansfieldBold  max-w-4xl mx-auto">
+                EXCLUSIVOS PARA OS PRIMEIROS INSCRITOS!
+            </p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-8 mt-20">
+            <div class="border-4 border-[#D0A16B] border-solid p-6 rounded-lg w-80 sm:w-96 flex flex-col items-center shadow-lg bg-transparent">
+                <h1 class="text-3xl sm:text-4xl font-semibold mb-10">📩</h1>
+                <p class="text-base sm:text-xl text-center mansfieldBold uppercase font-bold mt-2 text-white">Acesso a um grupo VIP no WhatsApp</p>
+                <p class="text-base sm:text-xl text-center uppercase font-bold mt-10 text-white"> com especialistas para suporte direto.</p>
+                <button class="bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)]  px-6 py-3 rounded-full mt-10 text-sm font-bold hover:bg-yellow-600 transition ">
+                    <a href="https://wa.me/5534999306776?text=Ol%C3%A1%2C%20gostaria%20de%20patrocinar%20o%20Doctalk%20com%20a%20cota%20APOIO">
+                        GARANTIR MÉTODO
+                    </a>
+                </button>
+            </div>
+        
+            <!-- Cota Premium -->
+            <div class="border-4 border-[#D0A16B] border-solid p-6 rounded-lg w-80 sm:w-96 flex flex-col items-center shadow-lg bg-transparent">
+                <h1 class="text-3xl sm:text-4xl font-semibold mb-10"> 📌</h1>
+                <p class="text-base sm:text-xl text-center uppercase font-bold mansfieldBold mt-2 text-white">Templates prontos</p>
+                <p class="text-base sm:text-xl text-center uppercase font-bold mt-10 text-white">  para facilitar sua estratégia digital.</p>
+                <button class="bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)]  px-6 py-3 rounded-full mt-10 text-sm font-bold hover:bg-[#d24d1f] transition ">
+                    <a href="https://wa.me/5534999306776?text=Ol%C3%A1%2C%20gostaria%20de%20patrocinar%20o%20Doctalk%20com%20a%20cota%20APOIO">
+                        GARANTIR MÉTODO
+                    </a>
+                </button>
+            </div>
+        
+            <!-- Cota Master -->
+            <div class="border-4 border-[#D0A16B] border-solid p-6 rounded-lg w-80 sm:w-96 flex flex-col items-center shadow-lg bg-transparent">
+                <h1 class="text-3xl sm:text-4xl font-semibold mb-10">  🎥</h1>
+                <p class="text-base sm:text-xl text-center uppercase font-bold mansfieldBold mt-2 text-white">Replay das aulas ao vivo</p>
+                <p class="text-base sm:text-xl text-center uppercase font-bold mt-10 text-white">  para assistir quando quiser.</p>
+                <button class="bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)]  px-6 py-3 rounded-full mt-10 text-sm font-bold hover:bg-[#d24d1f] transition ">
+                    <a href="https://wa.me/5534999306776?text=Ol%C3%A1%2C%20gostaria%20de%20patrocinar%20o%20Doctalk%20com%20a%20cota%20APOIO">
+                        GARANTIR MÉTODO
+                    </a>
+                </button>
+            </div>
+        </div>
+        </div>
+        
+
+    </section>
+
+    
+    
+    
+    <section class="relative flex justify-center items-center min-h-screen bg-black sm:hidden">
+        <!-- Imagem de fundo -->
+        <div class="absolute inset-0">
+            <img src="assets/section.webp" class="w-full h-full object-cover brightness-75" alt="Marketing Médico">
+        </div>
+    
+        <!-- Conteúdo sobre a imagem -->
+        <div class="relative z-10 flex flex-col items-center text-center px-6 sm:px-10 py-12 bg-black/50 backdrop-blur-md rounded-lg max-w-lg mx-4">
+            <!-- Título -->
+            <h2 class="text-lg sm:text-3xl md:text-4xl font-extrabold text-white uppercase leading-tight drop-shadow-lg">
+                Pronto para transformar seu 
+                <span class="bg-gradient-to-r from-[#D0A16B] via-[#E7C467] to-[#F8E489] text-transparent bg-clip-text">
+                    marketing médico?
+                </span>
+            </h2>
+    
+            <!-- Botão -->
+            <a href="https://wa.me/5534999306776?text=Ol%C3%A1%2C%20gostaria%20de%20patrocinar%20o%20Doctalk%20com%20a%20cota%20APOIO"
+                class="mt-6 px-8 py-4 bg-gradient-to-r from-[#D0A16B] via-[#E7C467] to-[#F8E489] text-black font-bold text-lg sm:text-xl rounded-full shadow-lg transform transition hover:scale-105">
+                Garantir Método
+            </a>
+    
+            <!-- Texto informativo -->
+            <p class="mt-4 text-sm sm:text-base text-white drop-shadow-md">
+                📌 Médico, o digital é o futuro. Se você não se posicionar agora, outros vão ocupar esse espaço!
+            </p>
+            <p class="mt-2 text-sm sm:text-base text-white drop-shadow-md">
+                💡 Não perca mais tempo – comece hoje mesmo e construa sua presença digital da forma certa!
+            </p>
+        </div>
+    </section>
+
+
+    <section class=" relative bg-white sm:flex justify-center items-center hidden">
+        <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 -mt-80 z-30">
+            <h2 class="text-2xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-white mb-12 md:mb-16 drop-shadow-lg uppercase mansfield">
+                PRONTO PARA TRANSFORMAR SEU 
+                <span class="bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)] text-transparent bg-clip-text mansfieldBold">
+                    MARKETING MÉDICO?
+                </span>
+            </h2>
+        
+            <button class="bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)] text-black text-2xl sm:text-3xl md:text-4xl font-bold px-8 py-4 rounded-full mt-10 mb-16 transition duration-300 transform hover:scale-105 hover:bg-[#d24d1f]">
+                <a href="https://wa.me/5534999306776?text=Ol%C3%A1%2C%20gostaria%20de%20patrocinar%20o%20Doctalk%20com%20a%20cota%20APOIO">
+                    QUERO ME INSCREVER NO CURSO <br> MÉTODO ATLAS
+                </a>
+            </button>
+        
+            <p class="text-lg sm:text-xl md:text-2xl text-white max-w-2xl mb-8 drop-shadow-md mansfield">
+                📌 Médico, o digital é o futuro. Se você não se posicionar agora, outros vão ocupar esse espaço!
+            </p>
+            <p class="text-lg sm:text-xl md:text-2xl text-white max-w-2xl drop-shadow-md mansfield">
+                💡 Não perca mais tempo – comece hoje mesmo e construa sua presença digital da forma certa!
+            </p>
+        </div>
+        
+        <div class="-mt-80 w-full">
+            <img src="assets/section.webp" class="mx-auto w-full h-auto" alt="">
+        </div>
+    </section>
+    
+    
+
+    <section class="bg-gradient-to-r from-black to-blue-900 py-16 md:py-32 relative pb-40 md:pb-96">
+        <div class="container mx-auto text-center text-white px-4">
+            <img src="assets/money.svg" class="mx-auto pt-8 sm:pt-16 w-20 sm:w-28 md:w-36 lg:w-40" alt="Ícone de dinheiro">
+    
+            <h1 class="mansfield text-3xl sm:text-4xl md:text-5xl pt-6 sm:pt-12 pb-4 sm:pb-8">
+                De <span class="line-through opacity-75">R$ 2.999</span>
+            </h1>
+    
+            <p class="uppercase mansfield text-lg sm:text-2xl md:text-3xl lg:text-4xl mt-2 sm:mt-4 pb-4 sm:pb-8">por apenas</p>
+    
+            <h2 class="bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)] mb-4 sm:mb-8 rounded-lg px-4 py-3 sm:py-4 max-w-xs sm:max-w-md md:max-w-lg mx-auto text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-black font-bold">
+                12x de <span class="text-black text-4xl sm:text-6xl md:text-7xl lg:text-9xl">R$ 15,51</span>
+            </h2>
+    
+            <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl mt-2 underline">
+                ou <span class="font-bold text-[#D0A16B]">R$ 149,97 à vista</span>
+            </p>
+    
+            <button class="mt-6 sm:mt-8 bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)] text-black text-base sm:text-lg md:text-xl lg:text-2xl font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full transition duration-300 transform hover:scale-105">
+                GARANTIR MÉTODO
+            </button>
+    
+            <img src="assets/logos.webp" class="mx-auto py-16 sm:py-32 w-full max-w-xs sm:max-w-md md:max-w-lg" alt="">
+    
+            <img src="assets/logo_footer.webp" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl" alt="">
+        </div>
+    </section>
+    
+    
+    
+    
+    
+</body>
+</html>
