@@ -112,7 +112,7 @@
             
             <div class="mt-6 flex justify-center relative">
                 <div class="w-full max-w-full md:max-w-3xl lg:max-w-5xl relative">
-                    <div class="relative w-full h-0" style="padding-bottom: 56.25%;">
+                    <div id="video-container" class="relative w-full h-0" style="padding-bottom: 56.25%;">
                         <!-- Embed do Vimeo -->
                         <iframe id="vimeo-player" 
                             src="https://player.vimeo.com/video/1067484564?badge=0&autopause=1&player_id=0&app_id=58479&autoplay=1&background=1"
@@ -134,6 +134,9 @@
                     </div>
                 </div>
             </div>
+            
+            
+            
         </div>
     </header>
 
@@ -505,19 +508,13 @@
         const player = new Vimeo.Player(iframe);
         const toggleSoundButton = document.getElementById("toggle-sound");
         const soundPopup = document.getElementById("sound-popup");
+        const videoContainer = document.getElementById("video-container");
 
         // Começa mutado
         player.setVolume(0);
 
-        // Quando o usuário clicar no popup, ativa o som e exibe o botão
-        soundPopup.addEventListener("click", async () => {
-            await player.setVolume(1); // Ativa o som
-            soundPopup.style.display = "none"; // Esconde o popup
-            toggleSoundButton.classList.remove("hidden"); // Exibe o botão de som
-        });
-
-        // Alterna o som ao clicar no botão
-        toggleSoundButton.addEventListener("click", async () => {
+        // Função para alternar o som
+        const toggleSound = async () => {
             const volume = await player.getVolume();
             if (volume === 0) {
                 await player.setVolume(1); // Ativa som
@@ -526,9 +523,43 @@
                 await player.setVolume(0); // Muta
                 toggleSoundButton.textContent = "🔊 Ativar Som";
             }
+        };
+
+        // Quando o usuário clicar no popup, ativa o som e exibe o botão
+        soundPopup.addEventListener("click", async (e) => {
+            e.stopPropagation(); // Evita que o clique afete outras interações
+            await player.setVolume(1); // Ativa o som
+            soundPopup.style.display = "none"; // Esconde o popup
+            toggleSoundButton.classList.remove("hidden"); // Exibe o botão de som
+        });
+
+        // Alterna o som ao clicar no botão
+        toggleSoundButton.addEventListener("click", (e) => {
+            e.stopPropagation(); // Evita que o clique no botão afete o vídeo
+            toggleSound();
+        });
+
+        // Alterna o som ao clicar no próprio vídeo (fora do botão)
+        videoContainer.addEventListener("click", (e) => {
+            if (e.target !== toggleSoundButton) {
+                toggleSound();
+            }
+        });
+
+        // Se clicar no corpo da página, muta o vídeo (se estiver com som)
+        document.addEventListener("click", async (e) => {
+            const volume = await player.getVolume();
+            if (volume > 0 && !videoContainer.contains(e.target) && e.target !== soundPopup) {
+                await player.setVolume(0);
+                toggleSoundButton.textContent = "🔊 Ativar Som";
+            }
         });
     });
 </script>
+
+
+
+
 
 </body>
 </html>
