@@ -113,16 +113,15 @@
             <div class="mt-6 flex justify-center relative">
                 <div class="w-full max-w-full md:max-w-3xl lg:max-w-5xl relative">
                     <div class="relative w-full h-0" style="padding-bottom: 56.25%;">
-                        <video id="custom-video" 
-                            src="assets/[BMOUSE] PLANO LAPIDAÇÃO (1).mp4" 
-                            autoplay 
-                            muted
-                            playsinline
-                            preload="auto"
-                            style="position:absolute;top:0;left:0;width:100%;height:100%;"
-                            oncontextmenu="return false;">
-                        </video>
-                        
+                        <!-- Embed do Vimeo -->
+                        <iframe id="vimeo-player" 
+                            src="https://player.vimeo.com/video/1067484564?badge=0&autopause=1&player_id=0&app_id=58479&autoplay=1&background=1"
+                            frameborder="0" 
+                            allow="autoplay; fullscreen; picture-in-picture" 
+                            allowfullscreen
+                            style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                        </iframe>
+            
                         <!-- Botão de ativar/desativar som -->
                         <button id="toggle-sound" class="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-2 rounded-lg text-sm opacity-80 hover:opacity-100 transition">
                             🔊 Ativar Som
@@ -497,15 +496,22 @@
       </script>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const video = document.getElementById("custom-video");
+        const iframe = document.getElementById("vimeo-player");
+        const player = new Vimeo.Player(iframe);
         const toggleSoundButton = document.getElementById("toggle-sound");
     
-        video.muted = true;
-        video.play().catch(error => console.error("Erro ao reproduzir o vídeo:", error));
+        // Começa mutado
+        player.setVolume(0);
     
-        toggleSoundButton.addEventListener("click", () => {
-            video.muted = !video.muted; // Alterna entre mudo e som
-            toggleSoundButton.textContent = video.muted ? "🔊 Ativar Som" : "🔇 Mutar Som"; // Atualiza o texto do botão
+        toggleSoundButton.addEventListener("click", async () => {
+            const volume = await player.getVolume();
+            if (volume === 0) {
+                player.setVolume(1); // Ativa som
+                toggleSoundButton.textContent = "🔇 Mutar Som";
+            } else {
+                player.setVolume(0); // Muta
+                toggleSoundButton.textContent = "🔊 Ativar Som";
+            }
         });
     });
     </script>
