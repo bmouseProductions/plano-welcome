@@ -482,28 +482,22 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
-        $(document).ready(function () {
-          $(".carousel2").slick({
-            dots: false,
-            centerMode: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 4,
-            cssEase: "ease",
-            autoplay: true,
-            autoplaySpeed: 2000,
-            slidesToScroll: 1,
-            responsive: [
-              {
-                breakpoint: 768, // Para dispositivos menores que 768px
-                settings: {
-                  slidesToShow: 1, // Exibir 1 imagem no mobile
-                  slidesToScroll: 1,
-                },
-              },
-            ],
-          });
-        });
+      $(document).ready(function () {
+  if ($(window).width() > 768) {
+    $(".carousel2").slick({
+      dots: false,
+      centerMode: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 4,
+      cssEase: "ease",
+      autoplay: true,
+      autoplaySpeed: 2000,
+      slidesToScroll: 1,
+    });
+  }
+});
+
       </script>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
