@@ -47,13 +47,23 @@ body{
 }
 
 @font-face {
+    font-family: 'mansfield light';
+    src: url('fonts/mansfield-geometric-sans-serif-2024-08-20-17-33-21-utc/Mansfield\ Extra\ Light.woff') format('woff');
+    font-weight: 200; 
+    font-style: normal;
+}
+
+
+@font-face {
     font-family: 'mansfield boldinho';
     src: url('fonts/mansfield-geometric-sans-serif-2024-08-20-17-33-21-utc/Mansfield\ Bold.woff') format('woff');
     font-weight: 700; 
     font-style: normal;
 }
 
-
+.mansfieldlight{
+    font-family: 'mansfield light';
+}
 
 
 .mansfieldItalic{
