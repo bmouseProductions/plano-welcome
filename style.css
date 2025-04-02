@@ -17,6 +17,20 @@ body {
 }
 
 @font-face {
+  font-family: "franie";
+  src: url("fonts/franie/Franie-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "franieBold";
+  src: url("fonts/franie/Franie-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "mansfield semibold";
   src: url("fonts/mansfield-geometric-sans-serif-2024-08-20-17-33-21-utc/Mansfield\ Semi\ Bold.woff")
     format("woff");
@@ -78,4 +92,12 @@ body {
 
 .mansfieldBoldinho {
   font-family: "mansfield boldinho";
+}
+
+.franie {
+  font-family: "franie", sans-serif;
+}
+
+.franieBold {
+  font-family: "franieBold", sans-serif;
 }
