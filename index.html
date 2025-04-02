@@ -1,544 +1,994 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Atlas</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="assets/icon-atlas.png" type="image/x-icon">
-    <link rel="shortcut icon" href="assets/icon-atlas.png" type="image/x-icon">
+    <link rel="icon" href="assets/icon-atlas.png" type="image/x-icon" />
     <link
-    rel="stylesheet"
-    type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
-  />
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
-  />
+      rel="shortcut icon"
+      href="assets/icon-atlas.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
     <style>
-        .scrolling-wrapper {
-          display: flex;
-          overflow: hidden;
-          position: relative;
-          width: 100%;
-        }
-  
-        .scrolling-text {
-          display: flex;
-          align-items: center; 
-          animation: scroll-left 15s linear infinite;
-        }
-  
-        @keyframes scroll-left {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-  
-        .scrolling-text span,
-        .scrolling-text img {
-          white-space: nowrap;
-          margin-right: 50px;
-        }
-  
-        .scrolling-text img {
-          height: 50px; 
-          object-fit: contain;
-        }
-      </style>
-      <link rel="stylesheet" href="style.css">
-</head>
-<body>
+      .scrolling-wrapper {
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+      }
 
-    <section class="uppercase">
-        <div class="bg-black  py-4">
-          <div class="scrolling-wrapper">
-            <div class="scrolling-text">
-              <span class="text-xl text-white mansfield"
-                >GARANTA HOJE O MÉTODO</span
+      .scrolling-text {
+        display: flex;
+        align-items: center;
+        animation: scroll-left 15s linear infinite;
+      }
+
+      @keyframes scroll-left {
+        0% {
+          transform: translateX(0%);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .scrolling-text span,
+      .scrolling-text img {
+        white-space: nowrap;
+        margin-right: 50px;
+      }
+
+      .scrolling-text img {
+        height: 50px;
+        object-fit: contain;
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header
+      class="bg-[url(/assets/background_header.png)] bg-center bg-cover py-16 text-white"
+    >
+      <div class="mx-auto container text-center px-4 md:px-8 lg:px-16">
+        <img
+          src="assets/logo-atlas.svg"
+          alt="logo atlas"
+          class="mx-auto w-32 md:w-48 lg:w-64"
+        />
+        <div class="mt-6 text-white">
+          <h1 class="text-4xl md:text-6xl lg:text-7xl mansfieldSemiBold">
+            Transforme sua Presença Digital em uma Máquina de Crescimento
+          </h1>
+        </div>
+
+        <div class="mt-6 flex justify-center relative">
+          <div class="w-full max-w-full md:max-w-3xl lg:max-w-5xl relative">
+            <div
+              id="video-container"
+              class="relative w-full h-0"
+              style="padding-bottom: 56.25%"
+            >
+              <!-- Embed do Vimeo -->
+              <iframe
+                id="vimeo-player"
+                src="https://player.vimeo.com/video/1069704443?h=205ddfef8d&amp;?badge=0&autopause=1&player_id=0&app_id=58479&autoplay=1&background=1"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen
+                style="
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                "
               >
-              <img src="assets/atlas_logo.webp" width="100" height="29" alt="Vector" />
-  
-              <span class="text-xl text-white mansfield">GARANTA HOJE O MÉTODO</span>
-  
-              <!-- Imagem/Vetor -->
-              <img src="assets/atlas_logo.webp" width="100" height="29" alt="Vector" />
-  
-              <!-- Mais textos -->
-              <span class="text-xl text-white mansfield"
-                >GARANTA HOJE O MÉTODO</span
+              </iframe>
+
+              <!-- Popup de aviso sobre o som -->
+              <div
+                id="sound-popup"
+                class="absolute top-0 left-0 w-full h-full bg-black/70 flex items-center justify-center text-white text-lg font-bold cursor-pointer"
               >
-              <img src="assets/atlas_logo.webp" width="100" height="29" alt="Vector" />
-  
-              <span class="text-xl text-white mansfield">GARANTA HOJE O MÉTODO</span>
-              <img src="assets/atlas_logo.webp" width="100" height="29" alt="Vector" />
-  
-              <!-- Repetição para continuidade -->
-              <span class="text-xl text-white mansfield"
-                >GARANTA HOJE O MÉTODO</span
+                Clique para ativar o som 🔊
+              </div>
+
+              <!-- Botão de ativar/desativar som (inicialmente oculto) -->
+              <button
+                id="toggle-sound"
+                class="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-2 rounded-lg text-sm opacity-80 hover:opacity-100 transition hidden"
               >
-              <img src="assets/atlas_logo.webp" width="100" height="29" alt="Vector" />
-  
-              <span class="text-xl text-white mansfield">GARANTA HOJE O MÉTODO</span>
-              <img src="assets/atlas_logo.webp" width="100" height="29" alt="Vector" />
-              <span class="text-xl text-white mansfield"
-                >GARANTA HOJE O MÉTODO</span
-              >
-              <img src="assets/atlas_logo.webp" width="100" height="29" alt="Vector" />
-  
-              <span class="text-xl text-white mansfield">GARANTA HOJE O MÉTODO</span>
+                🔇 Mutar Som
+              </button>
             </div>
           </div>
         </div>
-      </section>
-
-
-      <header>
-        <div class=" mx-auto container text-center px-4 md:px-8 lg:px-16">
-            <img src="assets/logo-atlas.svg" alt="logo atlas" class="mx-auto w-32 md:w-48 lg:w-64">
-            <div class="mt-6 text-[#002A4A]">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl mansfieldSemiBold">Aprenda a
-                    <span class="text-[#D99F62] mansfieldBold">
-                        lotar sua agenda
-                    </span>
-                    e se tornar uma  <span class="text-[#D99F62] mansfieldBold">
-                        autoridade digital
-                    </span>
-                    sem abrir mão da ética e do profissionalismo!
-                </h1>
-            </div>
-            
-            <div class="mt-6 flex justify-center relative">
-                <div class="w-full max-w-full md:max-w-3xl lg:max-w-5xl relative">
-                    <div id="video-container" class="relative w-full h-0" style="padding-bottom: 56.25%;">
-                        <!-- Embed do Vimeo -->
-                        <iframe id="vimeo-player" 
-                            src="https://player.vimeo.com/video/1069704443?h=205ddfef8d&amp;?badge=0&autopause=1&player_id=0&app_id=58479&autoplay=1&background=1"
-                            frameborder="0" 
-                            allow="autoplay; fullscreen; picture-in-picture" 
-                            allowfullscreen
-                            style="position:absolute;top:0;left:0;width:100%;height:100%;">
-                        </iframe>
-            
-                        <!-- Popup de aviso sobre o som -->
-                        <div id="sound-popup" class="absolute top-0 left-0 w-full h-full bg-black/70 flex items-center justify-center text-white text-lg font-bold cursor-pointer">
-                            Clique para ativar o som 🔊
-                        </div>
-            
-                        <!-- Botão de ativar/desativar som (inicialmente oculto) -->
-                        <button id="toggle-sound" class="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-2 rounded-lg text-sm opacity-80 hover:opacity-100 transition hidden">
-                            🔇 Mutar Som
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            
-            
+        <div>
+          <p>
+            Sabemos que, no cenário atual, não basta apenas existir no digital.
+            Seu posicionamento precisa ser forte, estratégico e direcionado para
+            conversão. Na Bmouse, criamos dois planos exclusivos para elevar sua
+            marca e garantir que sua presença digital não seja apenas mais uma,
+            mas sim uma referência que atrai e converte clientes ou pacientes de
+            forma contínua
+          </p>
+          <button
+            class="bg-[#1B2F6B] mx-auto mansfieldBold px-6 py-3 rounded-full mt-10 text-sm font-bold transition"
+          >
+            <a href="https://pay.hotmart.com/M98737734H" target="_blank">
+              QUERO TRANSFORMAR MINHA PRESENÇA
+            </a>
+          </button>
         </div>
+      </div>
     </header>
 
     <section class="pb-10 pt-10">
-        <div class="relative px-4 md:px-8 lg:px-16">
-            <div class="flex flex-col md:flex-row container mx-auto items-center relative">
-                <div class="w-full md:w-1/2 text-[#002A4A] text-center md:text-left">
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl mb-10 mansfieldlight">
-                        Você é <span class="text-[#D99F62] mansfieldBold">médico</span> e já tentou investir no digital, mas ainda não <span class=" mansfieldBold inline-block text-[#D99F62]">vê resultados?</span>
-                    </h1>
-                    <ul class="mb-12 text-lg mansfieldBold space-y-4">
-                        <li>- Muitos seguidores, mas poucos pacientes?</li>
-                        <li>- Anúncios que gastam dinheiro, mas não convertem?</li>
-                        <li>- Depende de indicações para fechar consultas?</li>
-                    </ul>
-                    <div class="relative">
-
-                        <p class="text-lg mansfield border border-[#002A4A] p-6 py-10 rounded-2xl">Se você quer uma estratégia validada para atrair, engajar e converter pacientes de forma previsível e sem marketing apelativo, o Curso Método ATLAS foi feito para você!</p>
-                        <button class="bg-[#D99F62] mx-auto mansfieldBold px-6 py-3 rounded-full mt-10 text-sm font-bold hover:bg-yellow-600 transition lg:absolute lg:top-28">
-                            <a href="https://pay.hotmart.com/M98737734H" target="_blank">
-                                GARANTIR MÉTODO
-                            </a>
-                        </button>
-                    </div>
-                </div>
-                <div class="w-full md:w-1/2 lg:flex justify-center mt-10 md:mt-0 hidden relative">
-                    <img src="assets/Macbook_Silver.webp" alt="Macbook_Silver" 
-                        class="w-3/4 md:w-full max-w-md md:max-w-lg lg:max-w-xl 
-                        md:absolute md:left-20 lg:left-40 xl:left-60 2xl:left-80 md:-top-40 lg:-top-72">
-                </div>
-            </div>
+      <div
+        class="carousel2 lg:mt-32 text-center justify-center mt-10 flex gap-4 items-center"
+      >
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/AgroPatense.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
         </div>
 
-        <div class="mt-20">
-
-            <h1 class="lg:text-6xl text-3xl mansfield text-center "><span class="text-[#D99F62]">Clientes</span> que já estão crescendo com o <br> <span class="text-[#D99F62] mansfieldBold ">Método ATLAS</span> </h1>
-
-
-            <div class="carousel2 lg:mt-32 text-center mt-10">
-                <div class="w-full xl:w-1/3 p-3">
-                  <img src="assets/elis.webp" alt="" class="w-full mx-auto" />
-      
-                  <h3 class="text-lg md:text-2xl font-bold mt-4 mansfield">
-                    Dra. Elisângela Menezes
-                  </h3>
-                  <p class=" mansfield text-sm">Médica Alergista e Imunologista | Pediatra</p>
-                  <button class="bg-[#D99F62] uppercase text-black text-lg font-bold px-8 py-4 rounded-full mt-10 mb-16 transition duration-300 transform hover:scale-105 hover:bg-[#d24d1f]">
-                    <a href="https://www.instagram.com/dra.elisangelamenezes/" target="_blank">
-                        ver instagram
-                    </a>
-                </button>
-                </div>
-      
-                <div class="w-full xl:w-1/3 p-3">
-                    <img src="assets/ana.webp" alt="" class="w-full mx-auto" />
-        
-                    <h3 class="text-lg md:text-2xl font-bold mt-4 mansfield">
-                        Anna Claudia
-                    </h3>
-                    <p class=" mansfield text-sm">Educação Física | Medicina do Esporte</p>
-                    <button class="bg-[#D99F62] uppercase text-black text-lg font-bold px-8 py-4 rounded-full mt-10 mb-16 transition duration-300 transform hover:scale-105 hover:bg-[#d24d1f]">
-                      <a href="https://www.instagram.com/annaclaudiapersonal/" target="_blank">
-                          ver instagram
-                      </a>
-                  </button>
-                  </div>
-      
-                  <div class="w-full xl:w-1/3 p-3">
-                    <img src="assets/arlete.webp" alt="" class="w-full mx-auto" />
-        
-                    <h3 class="text-lg md:text-2xl font-bold mt-4 mansfield">
-                        Arlete Lima
-                    </h3>
-                    <p class=" mansfield text-sm">Neuropsicóloga</p>
-                    <button class="bg-[#D99F62] uppercase text-black text-lg font-bold px-8 py-4 rounded-full mt-10 mb-16 transition duration-300 transform hover:scale-105 hover:bg-[#d24d1f]">
-                      <a href="https://www.instagram.com/arletelima.psi/" target="_blank">
-                        ver instagram
-                      </a>
-                  </button>
-                  </div>
-                  <div class="w-full xl:w-1/3 p-3">
-                    <img src="assets/junio.webp" alt="" class="w-full mx-auto" />
-        
-                    <h3 class="text-lg md:text-2xl font-bold mt-4 mansfield">
-                        Dr. Junio Moreto
-                    </h3>
-                    <p class=" mansfield text-sm">Cirurgião Plástico</p>
-                    <button class="bg-[#D99F62] uppercase text-black text-lg font-bold px-8 py-4 rounded-full mt-10 mb-16 transition duration-300 transform hover:scale-105 hover:bg-[#d24d1f]">
-                      <a href="https://www.instagram.com/drjuniomoreto/" target="_blank">
-                        ver instagram
-                      </a>
-                  </button>
-                  </div>
-                  <div class="w-full xl:w-1/3 p-3">
-                    <img src="assets/draNara.webp" alt="" class="w-full mx-auto" />
-        
-                    <h3 class="text-lg md:text-2xl font-bold mt-4 mansfield">
-                        Dra. Nara Vieira
-                    </h3>
-                    <p class=" mansfield text-sm">Dermatologista</p>
-                    <button class="bg-[#D99F62] uppercase text-black text-lg font-bold px-8 py-4 rounded-full mt-10 mb-16 transition duration-300 transform hover:scale-105 hover:bg-[#d24d1f]">
-                      <a href="https://www.instagram.com/dranaravieira/" target="_blank">
-                        ver instagram
-                      </a>
-                  </button>
-                  </div>
-              </div>
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/bomd.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
         </div>
-    </section>
 
-    
-    <section class="relative bg-white pb-20">
-        <div class="mx-auto text-center">
-            <h1 class="text-5xl  mb-12 mansfield">Como funciona o <span class="text-[#D99F62] mansfieldBold">curso?</span></h1>
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/cardeal.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
         </div>
-    
-        <div class="carousel lg:mt-32 mt-10 ">
-              <div class="w-full  p-3">
-               <div class="border  bg-[#002A4A] rounded-xl p-8 md:p-16 lg:p-20 h-[550px] text-white">
-                <img src="assets/aula.webp" class="mb-10" alt="">
-                <h1 class="text-3xl mansfieldBold uppercase">Aulas novas toda semana</h1>
-                <p class="mansfield mt-10">Atualizações constantes com as melhores estratégias do mercado.</p>
-                <button class="border rounded-xl uppercase px-2 py-2 mt-10">
-                    <a href="https://pay.hotmart.com/M98737734H" target="_blank">
-                        garantir método
-                    </a>
-                </button>
-               </div>
-              </div>
-            
-              <div class="w-full  p-3">
-                <div class="border  bg-[#002A4A] rounded-xl p-8 md:p-16 lg:p-20 h-[550px] text-white">
-                 <img src="assets/calendario.webp" class="mb-5" alt="">
-                 <h1 class="text-2xl mansfieldBold uppercase">VOCÊ JÁ SABE TODAS AS AULAS E DATAS</h1>
-                 <p class="mansfield mt-10">Planejamento completo para acompanhar cada etapa do aprendizado.</p>
-                 <button class="border rounded-xl uppercase px-2 py-2 mt-10">
-                    <a href="https://pay.hotmart.com/M98737734H" target="_blank">
-                        garantir método
-                    </a>
-                 </button>
-                </div>
-               </div>
 
-               <div class="w-full  p-3">
-                <div class="border  bg-[#002A4A] rounded-xl p-8 md:p-16 lg:p-20 h-[550px] text-white">
-                 <img src="assets/youtube.webp" class="mb-10" alt="">
-                 <h1 class="text-3xl mansfieldBold uppercase">1 LIVE POR SEMANA</h1>
-                 <p class="mansfield mt-10">Aprenda ao vivo com especialistas, tire suas dúvidas.</p>
-                 <button class="border rounded-xl uppercase px-2 py-2 mt-10">
-                    <a href="https://pay.hotmart.com/M98737734H" target="_blank">
-                        garantir método
-                    </a>
-                 </button>
-                </div>
-               </div>
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/clenio.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
 
-               <div class="w-full  p-3">
-                <div class="border  bg-[#002A4A] rounded-xl p-8 md:p-16 lg:p-20 h-[550px] text-white">
-                 <img src="assets/online.webp" class="mb-10" alt="">
-                 <h1 class="text-3xl mansfieldBold uppercase">ACESSO IMEDIATO</h1>
-                 <p class="mansfield mt-10">Comece agora com as 3 primeiras aulas disponíveis!</p>
-                 <button class="border rounded-xl uppercase px-2 py-2 mt-10">
-                    <a href="https://pay.hotmart.com/M98737734H" target="_blank">
-                        garantir método
-                    </a>
-                 </button>
-                </div>
-               </div>
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/farol.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
 
-               <div class="w-full  p-3">
-                <div class="border  bg-[#002A4A] rounded-xl p-8 md:p-16 lg:p-20 lg:h-[550px] text-white">
-                 <img src="assets/calendario.webp" class="mb-5" alt="">
-                 <h1 class="text-2xl mansfieldBold uppercase">VOCÊ JÁ SABE TODAS AS AULAS E DATAS</h1>
-                 <p class="mansfield mt-10">Planejamento completo para acompanhar cada etapa do aprendizado.</p>
-                 <button class="border rounded-xl uppercase px-2 py-2 mt-10">
-                    <a href="https://pay.hotmart.com/M98737734H" target="_blank">
-                        garantir método
-                    </a>
-                 </button>
-                </div>
-               </div>
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/GioLaser.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
 
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/leoni.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
+
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/medic.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
+
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/mira.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
+
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/neo.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
+
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/patense.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
+
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/petsmellon.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
+
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/sorridents.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
+
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/transtriangulo.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
+
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/urt.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
+
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/whg.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
+
+        <div class="flex justify-center items-center w-56 h-20">
+          <img
+            src="carrosel/zoomie.svg"
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
+      </div>
+
+      <div class="mt-20">
+        <h1 class="lg:text-6xl text-3xl mansfield text-center">
+          Clientes que já estão crescendo com o <br />
+          nossos planos
+        </h1>
+
+        <div class="carousel2 lg:mt-32 text-center mt-10">
+          <div class="w-full xl:w-1/3 p-3">
+            <img src="assets/elis.webp" alt="" class="w-full mx-auto" />
+
+            <h3 class="text-lg md:text-2xl font-bold mt-4 mansfield">
+              Dra. Elisângela Menezes
+            </h3>
+            <p class="mansfield text-sm">
+              Médica Alergista e Imunologista | Pediatra
+            </p>
+            <button
+              class="bg-[#D99F62] uppercase text-black text-lg font-bold px-8 py-4 rounded-full mt-10 mb-16 transition duration-300 transform hover:scale-105 hover:bg-[#d24d1f]"
+            >
+              <a
+                href="https://www.instagram.com/dra.elisangelamenezes/"
+                target="_blank"
+              >
+                ver instagram
+              </a>
+            </button>
           </div>
-    </section>
-    
-    <section class="relative py-20 px-6">
-        <div class="container mx-auto flex flex-col md:flex-row items-center justify-around gap-10">
-            <div class="relative rounded-lg flex items-center justify-center">
-                <img src="assets/tom&roberta.webp" alt="">
-            </div>
-            <div class="text-[#002A4A] ">
-                <h2 class="lg:text-6xl text-5xl pb-10 lg:pb-0">
-                    O que você vai <span class="text-[#D99F62] mansfieldBold">aprender?</span> 
-                </h2>
-                <ul class="mt-6 space-y-4 mansfield container mx-auto px-4">
-                    <li class="flex items-start text-lg"><img src="assets/logo_lateral.svg" width="33" height="30" alt=""> <span class="ml-2"><span class="mansfieldBold font-bold">Como atrair pacientes particulares sem depender de indicação.</span></li>
-                    <li class="flex items-start text-lg"><img src="assets/logo_lateral.svg" width="33" height="30" alt=""> <span class="ml-2"><span class="mansfieldBold font-bold">O que realmente funciona no Instagram para médicos.</span></li>
-                    <li class="flex items-start text-lg"><img src="assets/logo_lateral.svg" width="33" height="30" alt=""> <span class="ml-2"><span class="mansfieldBold font-bold">Como transformar seguidores em pacientes reais.</span></li>
-                    <li class="flex items-start text-lg"><img src="assets/logo_lateral.svg" width="33" height="30" alt=""> <span class="ml-2"><span class="mansfieldBold font-bold">O passo a passo para criar anúncios que convertem.</span></li>
-                    <li class="flex items-start text-lg"><img src="assets/logo_lateral.svg" width="33" height="30" alt=""> <span class="ml-2"><span class="mansfieldBold font-bold">Posicionamento digital para se tornar referência na sua especialidade.</span></li>
-                </ul>
-            </div>
+
+          <div class="w-full xl:w-1/3 p-3">
+            <img src="assets/ana.webp" alt="" class="w-full mx-auto" />
+
+            <h3 class="text-lg md:text-2xl font-bold mt-4 mansfield">
+              Anna Claudia
+            </h3>
+            <p class="mansfield text-sm">
+              Educação Física | Medicina do Esporte
+            </p>
+            <button
+              class="bg-[#D99F62] uppercase text-black text-lg font-bold px-8 py-4 rounded-full mt-10 mb-16 transition duration-300 transform hover:scale-105 hover:bg-[#d24d1f]"
+            >
+              <a
+                href="https://www.instagram.com/annaclaudiapersonal/"
+                target="_blank"
+              >
+                ver instagram
+              </a>
+            </button>
+          </div>
+
+          <div class="w-full xl:w-1/3 p-3">
+            <img src="assets/arlete.webp" alt="" class="w-full mx-auto" />
+
+            <h3 class="text-lg md:text-2xl font-bold mt-4 mansfield">
+              Arlete Lima
+            </h3>
+            <p class="mansfield text-sm">Neuropsicóloga</p>
+            <button
+              class="bg-[#D99F62] uppercase text-black text-lg font-bold px-8 py-4 rounded-full mt-10 mb-16 transition duration-300 transform hover:scale-105 hover:bg-[#d24d1f]"
+            >
+              <a
+                href="https://www.instagram.com/arletelima.psi/"
+                target="_blank"
+              >
+                ver instagram
+              </a>
+            </button>
+          </div>
+          <div class="w-full xl:w-1/3 p-3">
+            <img src="assets/junio.webp" alt="" class="w-full mx-auto" />
+
+            <h3 class="text-lg md:text-2xl font-bold mt-4 mansfield">
+              Dr. Junio Moreto
+            </h3>
+            <p class="mansfield text-sm">Cirurgião Plástico</p>
+            <button
+              class="bg-[#D99F62] uppercase text-black text-lg font-bold px-8 py-4 rounded-full mt-10 mb-16 transition duration-300 transform hover:scale-105 hover:bg-[#d24d1f]"
+            >
+              <a
+                href="https://www.instagram.com/drjuniomoreto/"
+                target="_blank"
+              >
+                ver instagram
+              </a>
+            </button>
+          </div>
+          <div class="w-full xl:w-1/3 p-3">
+            <img src="assets/draNara.webp" alt="" class="w-full mx-auto" />
+
+            <h3 class="text-lg md:text-2xl font-bold mt-4 mansfield">
+              Dra. Nara Vieira
+            </h3>
+            <p class="mansfield text-sm">Dermatologista</p>
+            <button
+              class="bg-[#D99F62] uppercase text-black text-lg font-bold px-8 py-4 rounded-full mt-10 mb-16 transition duration-300 transform hover:scale-105 hover:bg-[#d24d1f]"
+            >
+              <a
+                href="https://www.instagram.com/dranaravieira/"
+                target="_blank"
+              >
+                ver instagram
+              </a>
+            </button>
+          </div>
         </div>
+      </div>
     </section>
-    
+
+    <section class="relative py-20 px-6">
+      <div
+        class="container mx-auto flex flex-col md:flex-row items-center justify-around gap-10"
+      >
+        <div
+          class="relative rounded-lg flex items-center justify-center md:w-1/2"
+        >
+          <img src="assets/azul.webp" alt="" />
+        </div>
+        <div class="md:w-1/2">
+          <h2 class="lg:text-6xl text-5xl uppercase pb-10 lg:pb-0">
+            Plano <br />
+            mineração
+          </h2>
+          <p class="lg:text-2xl">
+            Seja encontrado como um
+            <span class="font-bold">diamante raro!</span>
+          </p>
+          <p class="lg:text-base py-3 lg:text-justify">
+            Um diamante só se torna valioso quando é descoberto. E para que as
+            pessoas encontrem você, é preciso fazer com que sua marca exista de
+            forma estratégica, profissional e impactante. O Plano Mineração é a
+            escolha certa para quem ainda não tem uma identidade visual forte,
+            não sabe como se posicionar e precisa construir uma base sólida no
+            digital.
+          </p>
+          <p class="font-bold lg:text-xl">O que inclui:</p>
+          <ul class="mt-6 space-y-4 mansfield container mx-auto">
+            <li class="flex items-start text-lg">
+              <span class="mansfieldBold font-bold"
+                >✅ Criação de marca e KV (Key Visual)</span
+              >
+            </li>
+            <li class="flex items-start text-lg">
+              <span class="mansfieldBold font-bold"
+                >✅ Padronização de redes sociais com ícones, banners e
+                destaques</span
+              >
+            </li>
+            <li class="flex items-start text-lg">
+              <span class="mansfieldBold font-bold"
+                >✅ Estudo de mercado detalhado sobre sua especialidade e
+                audiência</span
+              >
+            </li>
+            <li class="flex items-start text-lg">
+              <span class="mansfieldBold font-bold"
+                >✅ Planejamento estratégico exclusivo para os próximos 60
+                dias</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
     <section class="relative pt-16 px-4 md:px-8 lg:px-16 flex justify-center">
-        <div class="container mx-auto border bg-[#002A4A] rounded-xl p-8 md:p-16 lg:p-20 text-white">
-            <h2 class="text-3xl md:text-5xl lg:text-6xl mansfield text-center">
-                Para quem é o <span class="text-[#D99F62] mansfieldBold">curso?</span>
-            </h2>
-    
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-16">
-                <div class="border border-white rounded-3xl p-6 md:p-10 lg:p-12 text-center">
-                    <p class="uppercase mansfield">Profissionais que já investiram em marketing, mas não viram resultados reais.</p>
-                </div>
-                <div class="border border-white rounded-3xl p-6 md:p-10 lg:p-12 text-center">
-                    <p class="uppercase mansfield">Médicos que querem atrair pacientes particulares de forma previsível.</p>
-                </div>
-                <div class="border border-white rounded-3xl p-6 md:p-10 lg:p-12 text-center">
-                    <p class="uppercase mansfield">Especialistas que querem parar de depender de indicações e construir uma marca forte.</p>
-                </div>
-            </div>
-    
-            <div class="mx-auto text-center">
-                <button class="mt-8 bg-[#D99F62] text-black font-bold py-3 px-6 rounded-lg shadow-md">
-                    <a href="https://pay.hotmart.com/M98737734H" target="_blank">
-                        GARANTIR MÉTODO
-                    </a>
-                </button>
-            </div>
+      <div
+        class="container mx-auto border bg-[#002A4A] rounded-xl p-8 md:p-16 lg:p-20 text-white"
+      >
+        <div
+          class="flex flex-col md:flex-row justify-center mx-auto items-center"
+        >
+          <h1
+            class="text-3xl md:text-5xl lg:text-8xl md:w-2/3 mx-auto mansfieldItalic text-center"
+          >
+            PLUS+
+            <br />
+            <span class="lg:text-xl">(incluso no pacote)</span>
+          </h1>
+          <p class="text-4xl md:w-2/3">
+            Mentoria de como se gravar no celular (mentoria simples, sobre
+            enquadramento, luz, e configuração de celular)
+          </p>
         </div>
-    </section>
-    
-    
 
-    <section class=" pb-10">
-        <div class="py-32 container mx-auto px-4 relative  ">
- <div class="mx-auto text-center relative">
-            <h1 class="text-5xl max-w-sm mx-auto sm:text-6xl md:text-7xl p-5 font-bold mansfieldBold text-center uppercase mb-10 evenings-normal tracking-wide text-[#D99F62]">
-                BÔNUS
-            </h1>
-            <p class="text-[#002A4A] text-lg sm:text-xl mansfieldBold  max-w-4xl mx-auto">
-                EXCLUSIVOS PARA OS PRIMEIROS INSCRITOS!
+        <img src="assets/linha.webp" class="mx-auto py-10" alt="" />
+
+        <div class="text-center">
+          <h1 class="font-bold text-white text-center text-2xl">
+            Oferta de lançamento:
+            <br />
+            <span class="text-lg"
+              >🎯 08 artes exclusivas para postagens em redes sociais</span
+            >
+          </h1>
+          <div class="py-10">
+            <span class="mansfield text-9xl">R$ 4.999,00</span>
+            <p class="pt-10 text-base">Investimento promocional</p>
+          </div>
+          <p class="max-w-3xl mx-auto text-base">
+            Esse plano é ideal para quem está começando ou deseja reconstruir
+            sua identidade digital do zero. Com ele, garantimos que sua marca
+            não apenas exista, mas seja forte e reconhecida no mercado.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto text-center">
+      <button
+        class="mt-8 bg-[#1B2F6B] text-white font-bold py-3 px-6 rounded-full shadow-md"
+      >
+        <a href="https://pay.hotmart.com/M98737734H" target="_blank">
+          QUERO TRANSFORMAR MINHA PRESENÇA
+        </a>
+      </button>
+    </div>
+
+    <section class="relative py-20 px-6">
+      <div
+        class="container mx-auto flex flex-col md:flex-row items-center justify-around gap-10"
+      >
+        <div class="md:w-1/2">
+          <h2 class="lg:text-6xl text-5xl uppercase pb-10 lg:pb-0">
+            Plano <br />
+            LAPIDAÇÃO
+          </h2>
+          <p class="lg:text-2xl">
+            Seu próximo nível de
+            <span class="font-bold">autoridade e conversão</span>
+          </p>
+          <p class="lg:text-base py-3 lg:text-justify">
+            Se você já tem uma presença digital, mas ainda não consegue se
+            destacar como referência, o Plano Lapidação foi feito para você.
+            Agora que você já existe, é hora de agregar valor e transformar seu
+            marketing em um verdadeiro ativo de crescimento. Esse é um plano
+            potente, ideal para quem quer mais posicionamento, engajamento e
+            conversão.
+          </p>
+          <p class="font-bold lg:text-xl">O que inclui:</p>
+          <ul class="mt-6 space-y-4 mansfield container mx-auto">
+            <li class="flex items-start text-lg">
+              <span class="mansfieldBold font-bold"
+                >✅ Criação completa de marca e KV (Key Visual)</span
+              >
+            </li>
+            <li class="flex items-start text-lg">
+              <span class="mansfieldBold font-bold"
+                >✅ Padronização de redes sociais com identidade
+                profissional</span
+              >
+            </li>
+            <li class="flex items-start text-lg">
+              <span class="mansfieldBold font-bold"
+                >✅ 08 reels editados por mês com qualidade profissional</span
+              >
+            </li>
+            <li class="flex items-start text-lg">
+              <span class="mansfieldBold font-bold"
+                >✅ Estudo comercial detalhado sobre seu mercado e
+                público-alvo</span
+              >
+            </li>
+            <li class="flex items-start text-lg">
+              <span class="mansfieldBold font-bold"
+                >✅ 04 artes exclusivas por mês para postagens semanais</span
+              >
+            </li>
+            <li class="flex items-start text-lg">
+              <span class="mansfieldBold font-bold"
+                >✅ 06 artes exclusivas para Stories interativos</span
+              >
+            </li>
+            <li class="flex items-start text-lg">
+              <span class="mansfieldBold font-bold"
+                >✅ Gestão de tráfego pago para potencializar seu alcance</span
+              >
+            </li>
+            <li class="flex items-start text-lg">
+              <span class="mansfieldBold font-bold"
+                >✅ Trabalho estratégico de social media para aumentar
+                engajamento</span
+              >
+            </li>
+            <li class="flex items-start text-lg">
+              <span class="mansfieldBold font-bold"
+                >✅ Planejamento completo para campanhas trimestrais</span
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="relative text-center">
+          <img src="assets/azul.webp" alt="" />
+          <div
+            class="container mx-auto border mt-5 bg-[#E6E6E6] rounded-xl p-8 md:p-16 lg:p-20"
+          >
+            <h2
+              class="md:w-2/3 lg:text-6xl font-normal mx-auto mansfieldItalic text-center"
+            >
+              PLUS+
+              <br />
+            </h2>
+            <span class="lg:text-xl text-center mx-auto"
+              >(incluso no pacote)</span
+            >
+            <p class="p-3 max-w-xs text-lg text-[#082948]">
+              Mentoria de como se gravar no celular + acessórios que indicamos
+              para extrair a melhor qualidade do seu celular
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div
+        class="container mx-auto border bg-[#002A4A] rounded-xl p-8 md:p-16 lg:p-20 text-white"
+      >
+        <div
+          class="flex flex-col md:flex-row justify-center mx-auto items-center"
+        >
+          <h1
+            class="text-3xl md:text-5xl lg:text-8xl md:w-2/3 mx-auto mansfieldItalic text-center"
+          >
+            PLUS+
+            <br />
+            <span class="lg:text-xl">(incluso no pacote)</span>
+          </h1>
+          <p class="text-4xl md:w-2/3">
+            Mentoria de como se gravar no celular (mentoria simples, sobre
+            enquadramento, luz, e configuração de celular)
+          </p>
+        </div>
+
+        <img src="assets/linha.webp" class="mx-auto py-10" alt="" />
+
+        <div class="text-center">
+          <h1 class="font-bold text-white text-center text-2xl">
+            Oferta de lançamento:
+            <br />
+            <span class="text-lg"
+              >🎯 08 artes exclusivas para postagens em redes sociais</span
+            >
+          </h1>
+          <div class="py-10">
+            <span class="mansfield text-9xl">R$ 4.999,00</span>
+            <p class="pt-10 text-base">Investimento promocional</p>
+          </div>
+          <p class="max-w-3xl mx-auto text-base">
+            Esse plano é ideal para quem está começando ou deseja reconstruir
+            sua identidade digital do zero. Com ele, garantimos que sua marca
+            não apenas exista, mas seja forte e reconhecida no mercado.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-10">
+      <div class="py-32 container mx-auto px-4 relative">
+        <div class="mx-auto text-center relative">
+          <h1
+            class="text-5xl max-w-4xl mx-auto sm:text-6xl md:text-7xl p-5 mansfield text-center uppercase mb-10 evenings-normal tracking-wide"
+          >
+            PLANO <br />DIAMOND EXCLUSIVE
+          </h1>
+          <p class="text-lg sm:text-xl max-w-4xl mx-auto">
+            A EXCELÊNCIA NO <span class="mansfieldBold">MARKETING MÉDICO</span>
+          </p>
         </div>
         <div class="flex flex-wrap justify-center gap-8 mt-20">
-            <!-- Card 1 -->
-            <div class="border-4 border-[#D99F62] border-solid p-6 rounded-lg w-80 sm:w-96 flex flex-col items-center shadow-lg bg-transparent lg:h-[350px] h-[250px]">
-                <div class="flex flex-col flex-grow justify-between items-center space-y-4 ">
-                    <p class="text-base sm:text-xl text-center mansfieldBold uppercase font-bold text-[#002A4A] ">Acesso a um grupo VIP no WhatsApp</p>
-                    <p class="text-base sm:text-xl text-center uppercase mansfield text-[#002A4A]">com especialistas para suporte direto.</p>
-                    <button class="bg-[#D99F62] px-6 py-3 rounded-full text-sm font-bold flex gap-4 text-white transition lg:mt-auto">
-                        <a href="https://pay.hotmart.com/M98737734H" target="_blank">GARANTIR MÉTODO</a>
-                        <img src="assets/arrow.svg" width="24" height="24" alt="">
-                    </button>
-                </div>
+          <!-- Card 1 -->
+          <div
+            class="border-4 border-[#D99F62] border-solid p-6 rounded-lg w-80 sm:w-96 flex flex-col items-center shadow-lg bg-transparent lg:h-[350px] h-[250px]"
+          >
+            <div
+              class="flex flex-col flex-grow justify-between items-center space-y-4"
+            >
+              <p
+                class="text-base sm:text-xl text-center mansfieldBold uppercase font-bold text-[#002A4A]"
+              >
+                Acesso a um grupo VIP no WhatsApp
+              </p>
+              <p
+                class="text-base sm:text-xl text-center uppercase mansfield text-[#002A4A]"
+              >
+                com especialistas para suporte direto.
+              </p>
+              <button
+                class="bg-[#D99F62] px-6 py-3 rounded-full text-sm font-bold flex gap-4 text-white transition lg:mt-auto"
+              >
+                <a href="https://pay.hotmart.com/M98737734H" target="_blank"
+                  >GARANTIR MÉTODO</a
+                >
+                <img src="assets/arrow.svg" width="24" height="24" alt="" />
+              </button>
             </div>
-        
-            <!-- Card 2 -->
-            <div class="border-4 border-[#D99F62] border-solid p-6 rounded-lg w-80 sm:w-96 flex flex-col items-center shadow-lg bg-transparent lg:h-[350px] h-[250px]">
-                <div class="flex flex-col flex-grow justify-between items-center space-y-4 ">
-                    <p class="text-base sm:text-xl text-center uppercase font-bold mansfieldBold text-[#002A4A] ">Templates prontos</p>
-                    <p class="text-base sm:text-xl text-center uppercase mansfield text-[#002A4A]"> para facilitar sua estratégia digital.</p>
-                    <button class="bg-[#D99F62] px-6 py-3 rounded-full text-sm font-bold flex gap-4 text-white justify-center items-center lg:mt-auto">
-                        <a href="https://pay.hotmart.com/M98737734H" target="_blank">GARANTIR MÉTODO</a>
-                        <img src="assets/arrow.svg" width="24" height="24" alt="">
-                    </button>
-                </div>
-            </div>
-        
-            <!-- Card 3 -->
-            <div class="border-4 border-[#D99F62] border-solid p-6 rounded-lg w-80 sm:w-96 flex flex-col items-center shadow-lg bg-transparent lg:h-[350px] h-[250px]">
-                <div class="flex flex-col flex-grow justify-between items-center space-y-4 ">
-                    <p class="text-base sm:text-xl text-center uppercase font-bold mansfieldBold text-[#002A4A] ">Replay das aulas ao vivo</p>
-                    <p class="text-base sm:text-xl text-center uppercase mansfield text-[#002A4A]"> para assistir quando quiser.</p>
-                    <button class="bg-[#D99F62] px-6 py-3 rounded-full text-sm font-bold flex gap-4 text-white transition lg:mt-auto">
-                        <a href="https://pay.hotmart.com/M98737734H" target="_blank">GARANTIR MÉTODO</a>
-                        <img src="assets/arrow.svg" width="24" height="24" alt="">
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        </div>
-        
+          </div>
 
+          <!-- Card 2 -->
+          <div
+            class="border-4 border-[#D99F62] border-solid p-6 rounded-lg w-80 sm:w-96 flex flex-col items-center shadow-lg bg-transparent lg:h-[350px] h-[250px]"
+          >
+            <div
+              class="flex flex-col flex-grow justify-between items-center space-y-4"
+            >
+              <p
+                class="text-base sm:text-xl text-center uppercase font-bold mansfieldBold text-[#002A4A]"
+              >
+                Templates prontos
+              </p>
+              <p
+                class="text-base sm:text-xl text-center uppercase mansfield text-[#002A4A]"
+              >
+                para facilitar sua estratégia digital.
+              </p>
+              <button
+                class="bg-[#D99F62] px-6 py-3 rounded-full text-sm font-bold flex gap-4 text-white justify-center items-center lg:mt-auto"
+              >
+                <a href="https://pay.hotmart.com/M98737734H" target="_blank"
+                  >GARANTIR MÉTODO</a
+                >
+                <img src="assets/arrow.svg" width="24" height="24" alt="" />
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="border-4 border-[#D99F62] border-solid p-6 rounded-lg w-80 sm:w-96 flex flex-col items-center shadow-lg bg-transparent lg:h-[350px] h-[250px]"
+          >
+            <div
+              class="flex flex-col flex-grow justify-between items-center space-y-4"
+            >
+              <p
+                class="text-base sm:text-xl text-center uppercase font-bold mansfieldBold text-[#002A4A]"
+              >
+                Replay das aulas ao vivo
+              </p>
+              <p
+                class="text-base sm:text-xl text-center uppercase mansfield text-[#002A4A]"
+              >
+                para assistir quando quiser.
+              </p>
+              <button
+                class="bg-[#D99F62] px-6 py-3 rounded-full text-sm font-bold flex gap-4 text-white transition lg:mt-auto"
+              >
+                <a href="https://pay.hotmart.com/M98737734H" target="_blank"
+                  >GARANTIR MÉTODO</a
+                >
+                <img src="assets/arrow.svg" width="24" height="24" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-    
-    
-    <section class=" relative bg-white sm:flex justify-center items-center hidden">
-        <div class="container mx-auto  border max-w-6xl bg-[#002A4A] rounded-xl p-8 md:p-16 lg:p-20  text-white">
-            <img src="assets/logo_A.svg" class="mx-auto py-16" alt="">
-            <h2 class="text-3xl md:text-5xl lg:text-6xl mansfield text-center">
-                PRONTO PARA TRANSFORMAR SEU  <span class="text-[#D99F62] mansfieldBold">MARKETING MÉDICO?</span>
-            </h2>
-            <div class="mx-auto text-center justify-center">
-    
-                <button class="mt-8 my-16 bg-[#D99F62] text-white mansfield py-3 px-6 rounded-lg shadow-md">
-                    <a href="https://pay.hotmart.com/M98737734H" target="_blank">
-                        QUERO ME INSCREVER NO CURSO <span class="mansfieldBold font-bold">MÉTODO ATLAS</span> 
-    
-                    </a>
-                </button>
-               </div>
-    
-           <div class="text-center">
-            <p class="text-xl"><span class="mansfieldBold font-bold">Médico, o digital é o futuro.</span> Se você não se posicionar agora, outros vão ocupar esse espaço!</p>
-            <p class="text-xl">Não perca mais tempo – <span class="mansfieldBold font-bold">comece hoje mesmo</span>  e construa sua presença digital da forma certa!</p>
-           </div>
 
-
-
+    <section
+      class="relative bg-white sm:flex justify-center items-center hidden"
+    >
+      <div
+        class="container mx-auto border max-w-6xl bg-[#002A4A] rounded-xl p-8 md:p-16 lg:p-20 text-white"
+      >
+        <img src="assets/logo_A.svg" class="mx-auto py-16" alt="" />
+        <h2 class="text-3xl md:text-5xl lg:text-6xl mansfield text-center">
+          PRONTO PARA TRANSFORMAR SEU
+          <span class="text-[#D99F62] mansfieldBold">MARKETING MÉDICO?</span>
+        </h2>
+        <div class="mx-auto text-center justify-center">
+          <button
+            class="mt-8 my-16 bg-[#D99F62] text-white mansfield py-3 px-6 rounded-lg shadow-md"
+          >
+            <a href="https://pay.hotmart.com/M98737734H" target="_blank">
+              QUERO ME INSCREVER NO CURSO
+              <span class="mansfieldBold font-bold">MÉTODO ATLAS</span>
+            </a>
+          </button>
         </div>
-    </section>
-    
-    
 
-    <section class=" md:py-32 relative pb-40 md:pb-96">
-        <div class="container mx-auto text-center text-[#082948] px-4">
-            <img src="assets/logo_A.svg" class="mx-auto pt-8 sm:pt-16 " width="48" height="48" alt="Ícone de dinheiro">
-    
-            <h1 class="mansfield text-3xl sm:text-4xl md:text-5xl pt-6 sm:pt-12 pb-4 sm:pb-8">
-                De <span class="text-[#D99F62] mansfieldBold font-bold line-through">R$ 1390,97</span>
+        <div class="text-center">
+          <p class="text-xl">
+            <span class="mansfieldBold font-bold"
+              >Médico, o digital é o futuro.</span
+            >
+            Se você não se posicionar agora, outros vão ocupar esse espaço!
+          </p>
+          <p class="text-xl">
+            Não perca mais tempo –
+            <span class="mansfieldBold font-bold">comece hoje mesmo</span> e
+            construa sua presença digital da forma certa!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative bg-white pb-20">
+      <div class="mx-auto text-center">
+        <h1 class="text-5xl mb-12 mansfield">
+          Como funciona o
+          <span class="text-[#D99F62] mansfieldBold">curso?</span>
+        </h1>
+      </div>
+
+      <div class="carousel lg:mt-32 mt-10">
+        <div class="w-full p-3">
+          <div
+            class="border bg-[#002A4A] rounded-xl p-8 md:p-16 lg:p-20 h-[550px] text-white"
+          >
+            <img src="assets/aula.webp" class="mb-10" alt="" />
+            <h1 class="text-3xl mansfieldBold uppercase">
+              Aulas novas toda semana
             </h1>
-    
-            <p class="uppercase mansfield text-lg sm:text-2xl md:text-3xl lg:text-4xl mt-2 sm:mt-4 pb-4 sm:pb-8">por apenas</p>
-    
-            <h2 class="text-[#D99F62] text-5xl mansfield">
-                12x<span class="text-[#002A4A] font-bold mansfieldBold text-6xl sm:text-6xl md:text-9xl lg:text-9xl">R$ 15,51</span>
-            </h2>
-    
-            <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl mt-2 underline">
-                ou <span class="font-bold text-[#D0A16B]">R$ 149,97 à vista</span>
+            <p class="mansfield mt-10">
+              Atualizações constantes com as melhores estratégias do mercado.
             </p>
-    
-            <button class="mt-6 sm:mt-8 bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)] text-black text-base sm:text-lg md:text-xl lg:text-2xl font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full transition duration-300 transform hover:scale-105">
-                <a href="https://pay.hotmart.com/M98737734H" target="_blank">
-
-                    GARANTIR MÉTODO
-                </a>
+            <button class="border rounded-xl uppercase px-2 py-2 mt-10">
+              <a href="https://pay.hotmart.com/M98737734H" target="_blank">
+                garantir método
+              </a>
             </button>
-    
-            <img src="assets/logos.webp" class="mx-auto py-16 sm:py-32 w-full max-w-xs sm:max-w-md md:max-w-lg" alt="">
-    
-            <img src="assets/logo_footer.webp" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl" alt="">
+          </div>
         </div>
+
+        <div class="w-full p-3">
+          <div
+            class="border bg-[#002A4A] rounded-xl p-8 md:p-16 lg:p-20 h-[550px] text-white"
+          >
+            <img src="assets/calendario.webp" class="mb-5" alt="" />
+            <h1 class="text-2xl mansfieldBold uppercase">
+              VOCÊ JÁ SABE TODAS AS AULAS E DATAS
+            </h1>
+            <p class="mansfield mt-10">
+              Planejamento completo para acompanhar cada etapa do aprendizado.
+            </p>
+            <button class="border rounded-xl uppercase px-2 py-2 mt-10">
+              <a href="https://pay.hotmart.com/M98737734H" target="_blank">
+                garantir método
+              </a>
+            </button>
+          </div>
+        </div>
+
+        <div class="w-full p-3">
+          <div
+            class="border bg-[#002A4A] rounded-xl p-8 md:p-16 lg:p-20 h-[550px] text-white"
+          >
+            <img src="assets/youtube.webp" class="mb-10" alt="" />
+            <h1 class="text-3xl mansfieldBold uppercase">1 LIVE POR SEMANA</h1>
+            <p class="mansfield mt-10">
+              Aprenda ao vivo com especialistas, tire suas dúvidas.
+            </p>
+            <button class="border rounded-xl uppercase px-2 py-2 mt-10">
+              <a href="https://pay.hotmart.com/M98737734H" target="_blank">
+                garantir método
+              </a>
+            </button>
+          </div>
+        </div>
+
+        <div class="w-full p-3">
+          <div
+            class="border bg-[#002A4A] rounded-xl p-8 md:p-16 lg:p-20 h-[550px] text-white"
+          >
+            <img src="assets/online.webp" class="mb-10" alt="" />
+            <h1 class="text-3xl mansfieldBold uppercase">ACESSO IMEDIATO</h1>
+            <p class="mansfield mt-10">
+              Comece agora com as 3 primeiras aulas disponíveis!
+            </p>
+            <button class="border rounded-xl uppercase px-2 py-2 mt-10">
+              <a href="https://pay.hotmart.com/M98737734H" target="_blank">
+                garantir método
+              </a>
+            </button>
+          </div>
+        </div>
+
+        <div class="w-full p-3">
+          <div
+            class="border bg-[#002A4A] rounded-xl p-8 md:p-16 lg:p-20 lg:h-[550px] text-white"
+          >
+            <img src="assets/calendario.webp" class="mb-5" alt="" />
+            <h1 class="text-2xl mansfieldBold uppercase">
+              VOCÊ JÁ SABE TODAS AS AULAS E DATAS
+            </h1>
+            <p class="mansfield mt-10">
+              Planejamento completo para acompanhar cada etapa do aprendizado.
+            </p>
+            <button class="border rounded-xl uppercase px-2 py-2 mt-10">
+              <a href="https://pay.hotmart.com/M98737734H" target="_blank">
+                garantir método
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <button id="back-to-top" class="fixed bottom-6 right-6 bg-black/70 text-white px-4 py-3 rounded-lg text-sm opacity-80 hover:opacity-100 transition hidden">
-        ⬆️
+    <section class="md:py-32 relative pb-40 md:pb-96">
+      <div class="container mx-auto text-center text-[#082948] px-4">
+        <img
+          src="assets/logo_A.svg"
+          class="mx-auto pt-8 sm:pt-16"
+          width="48"
+          height="48"
+          alt="Ícone de dinheiro"
+        />
+
+        <h1
+          class="mansfield text-3xl sm:text-4xl md:text-5xl pt-6 sm:pt-12 pb-4 sm:pb-8"
+        >
+          De
+          <span class="text-[#D99F62] mansfieldBold font-bold line-through"
+            >R$ 1390,97</span
+          >
+        </h1>
+
+        <p
+          class="uppercase mansfield text-lg sm:text-2xl md:text-3xl lg:text-4xl mt-2 sm:mt-4 pb-4 sm:pb-8"
+        >
+          por apenas
+        </p>
+
+        <h2 class="text-[#D99F62] text-5xl mansfield">
+          12x<span
+            class="text-[#002A4A] font-bold mansfieldBold text-6xl sm:text-6xl md:text-9xl lg:text-9xl"
+            >R$ 15,51</span
+          >
+        </h2>
+
+        <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl mt-2 underline">
+          ou <span class="font-bold text-[#D0A16B]">R$ 149,97 à vista</span>
+        </p>
+
+        <button
+          class="mt-6 sm:mt-8 bg-[linear-gradient(90deg,_#D0A16B_0%,_#E7C467_54.53%,_#F8E489_100%)] text-black text-base sm:text-lg md:text-xl lg:text-2xl font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full transition duration-300 transform hover:scale-105"
+        >
+          <a href="https://pay.hotmart.com/M98737734H" target="_blank">
+            GARANTIR MÉTODO
+          </a>
+        </button>
+
+        <img
+          src="assets/logos.webp"
+          class="mx-auto py-16 sm:py-32 w-full max-w-xs sm:max-w-md md:max-w-lg"
+          alt=""
+        />
+
+        <img
+          src="assets/logo_footer.webp"
+          class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl"
+          alt=""
+        />
+      </div>
+    </section>
+
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 bg-black/70 text-white px-4 py-3 rounded-lg text-sm opacity-80 hover:opacity-100 transition hidden"
+    >
+      ⬆️
     </button>
 
-    <a id="whatsapp-button" href="https://wa.me/5534999306776?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20curso%20do%20M%C3%A9todo%20ATLAS" target="_blank" class="fixed bottom-6 left-6 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg flex items-center gap-2 opacity-80 hover:opacity-100 transition">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-6 h-6">
+    <a
+      id="whatsapp-button"
+      href="https://wa.me/5534999306776?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20curso%20do%20M%C3%A9todo%20ATLAS"
+      target="_blank"
+      class="fixed bottom-6 left-6 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg flex items-center gap-2 opacity-80 hover:opacity-100 transition"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        alt="WhatsApp"
+        class="w-6 h-6"
+      />
     </a>
-    
+
     <!--nao tem mais video aqui-->
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
       $(document).ready(function () {
-  if ($(window).width() > 768) {
-    $(".carousel2").slick({
-      dots: false,
-      centerMode: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 4,
-      cssEase: "ease",
-      autoplay: true,
-      autoplaySpeed: 2000,
-      slidesToScroll: 1,
-    });
-  }
-});
-
-      </script>
-      <script>
-        $(document).ready(function () {
-    if ($(window).width() > 768) {
-      $(".carousel").slick({
-        dots: false,
-        centerMode: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        cssEase: "ease",
-        autoplay: true,
-        autoplaySpeed: 2000,
-        slidesToScroll: 1,
+        if ($(window).width() > 768) {
+          $(".carousel2").slick({
+            dots: false,
+            centerMode: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 4,
+            cssEase: "ease",
+            autoplay: true,
+            autoplaySpeed: 2000,
+            slidesToScroll: 1,
+          });
+        }
       });
-    }
-  });
-  
-        </script>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
+    </script>
+    <script>
+      $(document).ready(function () {
+        if ($(window).width() > 768) {
+          $(".carousel").slick({
+            dots: false,
+            centerMode: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 3,
+            cssEase: "ease",
+            autoplay: true,
+            autoplaySpeed: 2000,
+            slidesToScroll: 1,
+          });
+        }
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
         const iframe = document.getElementById("vimeo-player");
         const player = new Vimeo.Player(iframe);
         const toggleSoundButton = document.getElementById("toggle-sound");
@@ -550,69 +1000,70 @@
 
         // Função para alternar o som
         const toggleSound = async () => {
-            const volume = await player.getVolume();
-            if (volume === 0) {
-                await player.setVolume(1); // Ativa som
-                toggleSoundButton.textContent = "🔇 Mutar Som";
-            } else {
-                await player.setVolume(0); // Muta
-                toggleSoundButton.textContent = "🔊 Ativar Som";
-            }
+          const volume = await player.getVolume();
+          if (volume === 0) {
+            await player.setVolume(1); // Ativa som
+            toggleSoundButton.textContent = "🔇 Mutar Som";
+          } else {
+            await player.setVolume(0); // Muta
+            toggleSoundButton.textContent = "🔊 Ativar Som";
+          }
         };
 
         // Quando o usuário clicar no popup, ativa o som e exibe o botão
         soundPopup.addEventListener("click", async (e) => {
-            e.stopPropagation(); // Evita que o clique afete outras interações
-            await player.setVolume(1); // Ativa o som
-            soundPopup.style.display = "none"; // Esconde o popup
-            toggleSoundButton.classList.remove("hidden"); // Exibe o botão de som
+          e.stopPropagation(); // Evita que o clique afete outras interações
+          await player.setVolume(1); // Ativa o som
+          soundPopup.style.display = "none"; // Esconde o popup
+          toggleSoundButton.classList.remove("hidden"); // Exibe o botão de som
         });
 
         // Alterna o som ao clicar no botão
         toggleSoundButton.addEventListener("click", (e) => {
-            e.stopPropagation(); // Evita que o clique no botão afete o vídeo
-            toggleSound();
+          e.stopPropagation(); // Evita que o clique no botão afete o vídeo
+          toggleSound();
         });
 
         // Alterna o som ao clicar no próprio vídeo (fora do botão)
         videoContainer.addEventListener("click", (e) => {
-            if (e.target !== toggleSoundButton) {
-                toggleSound();
-            }
+          if (e.target !== toggleSoundButton) {
+            toggleSound();
+          }
         });
 
         // Se clicar no corpo da página, muta o vídeo (se estiver com som)
         document.addEventListener("click", async (e) => {
-            const volume = await player.getVolume();
-            if (volume > 0 && !videoContainer.contains(e.target) && e.target !== soundPopup) {
-                await player.setVolume(0);
-                toggleSoundButton.textContent = "🔊 Ativar Som";
-            }
+          const volume = await player.getVolume();
+          if (
+            volume > 0 &&
+            !videoContainer.contains(e.target) &&
+            e.target !== soundPopup
+          ) {
+            await player.setVolume(0);
+            toggleSoundButton.textContent = "🔊 Ativar Som";
+          }
         });
-    });
-</script>
+      });
+    </script>
 
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
         const backToTopButton = document.getElementById("back-to-top");
 
         // Mostrar/esconder botão de voltar ao topo
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.remove("hidden");
-            } else {
-                backToTopButton.classList.add("hidden");
-            }
+          if (window.scrollY > 300) {
+            backToTopButton.classList.remove("hidden");
+          } else {
+            backToTopButton.classList.add("hidden");
+          }
         });
 
         // Rolar suavemente para o topo ao clicar no botão
         backToTopButton.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
+          window.scrollTo({ top: 0, behavior: "smooth" });
         });
-    });
-</script>
-
-
-</body>
+      });
+    </script>
+  </body>
 </html>
