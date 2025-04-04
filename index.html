@@ -851,42 +851,43 @@
       });
     </script>
 
-    <script>
-      $(document).ready(function () {
-        $(".carousel3").slick({
-          dots: false,
-          centerMode: true,
-          infinite: true,
-          speed: 500,
-          slidesToShow: 3,
-          cssEase: "ease",
-          autoplay: true,
-          adaptiveHeight: true,
-          autoplaySpeed: 2000,
-          slidesToScroll: 1,
-          responsive: [
-            {
-              breakpoint: 1024, // Tablets e telas médias
-              settings: {
-                slidesToShow: 3,
-              },
-            },
-            {
-              breakpoint: 768, // Dispositivos móveis
-              settings: {
-                slidesToShow: 2,
-              },
-            },
-            {
-              breakpoint: 480, // Smartphones menores
-              settings: {
-                slidesToShow: 1,
-              },
-            },
-          ],
-        });
-      });
-    </script>
+<script>
+  $(document).ready(function () {
+    $(".carousel3").slick({
+      dots: false,
+      centerMode: true,
+      infinite: true,
+      speed: 2500,       // Velocidade para dar um efeito mais linear
+      slidesToShow: 3,
+      cssEase: "linear",
+      autoplay: true,
+      autoplaySpeed: 0,  // Sem pausa, movimento contínuo
+      adaptiveHeight: true,
+      slidesToScroll: 1, // Rolar um slide por vez para movimento contínuo
+      responsive: [
+        {
+          breakpoint: 1024, // Tablets e telas médias
+          settings: {
+            slidesToShow: 3,
+          },
+        },
+        {
+          breakpoint: 768, // Dispositivos móveis
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+        {
+          breakpoint: 480, // Smartphones menores
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
+    });
+  });
+</script>
+
     <script>
       $(document).ready(function () {
         if ($(window).width() > 768) {
